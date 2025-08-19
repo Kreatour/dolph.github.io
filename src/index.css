@@ -76,6 +76,17 @@
     animation: wave-flow 8s ease-in-out infinite;
   }
   
+  .ocean-waves::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(56, 178, 172, 0.05), transparent);
+    animation: wave-flow 12s ease-in-out infinite reverse;
+  }
+  
   .dolphin-float {
     animation: dolphin-leap 6s ease-in-out infinite;
   }
@@ -89,12 +100,14 @@
     @apply bg-gradient-to-r from-aqua-bright to-ocean-light text-ocean-deep font-bold px-8 py-4 rounded-2xl border-2 border-aqua-bright;
     @apply hover:scale-105 hover:shadow-lg hover:shadow-aqua-bright/25;
     @apply transition-all duration-300 ease-out;
+    @apply active:scale-95;
   }
   
   .btn-hero-secondary {
     @apply bg-transparent text-aqua-bright font-bold px-8 py-4 rounded-2xl border-2 border-aqua-bright;
     @apply hover:bg-aqua-bright hover:text-ocean-deep hover:scale-105;
     @apply transition-all duration-300 ease-out;
+    @apply active:scale-95;
   }
   
   /* Card Variants */
@@ -102,6 +115,7 @@
     @apply bg-gradient-to-br from-ocean-medium/80 to-ocean-deep/80 backdrop-blur-sm;
     @apply border border-aqua-bright/20 rounded-3xl p-8;
     @apply hover:border-aqua-bright/40 transition-all duration-300;
+    @apply cursor-pointer;
   }
   
   .card-meme {
@@ -109,6 +123,7 @@
     @apply border-2 border-aqua-bright/30 rounded-2xl p-6;
     @apply hover:border-aqua-bright/50 hover:scale-105;
     @apply transition-all duration-300 ease-out;
+    @apply cursor-pointer;
   }
 }
 
@@ -122,30 +137,59 @@
     @apply bg-gradient-to-r from-aqua-light to-aqua-bright bg-clip-text text-transparent;
   }
   
-  /* Shadows */
+  /* Enhanced Shadows */
   .shadow-ocean {
-    box-shadow: 0 25px 50px -12px rgba(56, 178, 172, 0.25);
+    box-shadow: 0 25px 50px -12px rgba(56, 178, 172, 0.4);
   }
   
   .shadow-dolphin {
-    box-shadow: 0 10px 25px rgba(56, 178, 172, 0.3), 0 0 0 1px rgba(56, 178, 172, 0.1);
+    box-shadow: 
+      0 10px 25px rgba(56, 178, 172, 0.4), 
+      0 0 0 1px rgba(56, 178, 172, 0.2),
+      0 0 20px rgba(56, 178, 172, 0.1);
+  }
+  
+  /* Interactive hover effects */
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-glow:hover {
+    filter: drop-shadow(0 0 20px rgba(56, 178, 172, 0.5));
   }
 }
 
-/* Keyframe Animations */
+/* Enhanced Keyframe Animations */
 @keyframes wave-flow {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(50%); }
+  0%, 100% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(25%) translateY(-5px); }
+  50% { transform: translateX(50%) translateY(0); }
+  75% { transform: translateX(25%) translateY(5px); }
 }
 
 @keyframes dolphin-leap {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  25% { transform: translateY(-10px) rotate(-5deg); }
-  50% { transform: translateY(-15px) rotate(0deg); }
-  75% { transform: translateY(-10px) rotate(5deg); }
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  15% { transform: translateY(-8px) rotate(-3deg) scale(1.02); }
+  30% { transform: translateY(-12px) rotate(0deg) scale(1.05); }
+  45% { transform: translateY(-8px) rotate(3deg) scale(1.02); }
+  60% { transform: translateY(-5px) rotate(0deg) scale(1.01); }
 }
 
 @keyframes meme-bounce {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-8px) scale(1.05); }
+  0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+  25% { transform: translateY(-4px) scale(1.02) rotate(-1deg); }
+  50% { transform: translateY(-8px) scale(1.05) rotate(0deg); }
+  75% { transform: translateY(-4px) scale(1.02) rotate(1deg); }
+}
+
+/* Additional interactive animations */
+@keyframes bubble-float {
+  0% { transform: translateY(0px) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-10px) scale(1.1); opacity: 1; }
+  100% { transform: translateY(0px) scale(1); opacity: 0.7; }
+}
+
+@keyframes gentle-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
 }
