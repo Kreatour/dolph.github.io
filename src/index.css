@@ -1,96 +1,48 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* $DOLPH Ocean Design System 🌊🐬 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
+    /* Base Colors */
+    --background: 215 30% 8%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    /* Ocean Color Palette */
+    --ocean-deep: 215 85% 12%;
+    --ocean-medium: 208 90% 20%;
+    --ocean-light: 195 100% 35%;
+    --aqua-bright: 180 100% 50%;
+    --aqua-light: 180 100% 85%;
+    --foam-white: 0 0% 100%;
+    
+    /* UI Colors */
+    --card: 215 30% 10%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
+    --popover: 215 30% 10%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 215 85% 12%;
+    --secondary: 215 30% 15%;
     --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
+    --muted: 215 30% 15%;
+    --muted-foreground: 210 20% 65%;
+    --accent: 195 100% 35%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
+    --border: 215 30% 20%;
+    --input: 215 30% 15%;
+    --ring: 180 100% 50%;
+    --radius: 1rem;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Custom Ocean Variables */
+    --wave-primary: linear-gradient(135deg, hsl(215, 85%, 12%) 0%, hsl(208, 90%, 20%) 50%, hsl(195, 100%, 35%) 100%);
+    --wave-secondary: linear-gradient(45deg, hsl(180, 100%, 50%) 0%, hsl(180, 100%, 85%) 100%);
+    --dolphin-gradient: linear-gradient(135deg, hsl(195, 100%, 35%) 0%, hsl(180, 100%, 50%) 100%);
   }
 }
 
@@ -98,8 +50,102 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
+  
   body {
     @apply bg-background text-foreground;
+    background: var(--wave-primary);
+    font-family: 'Inter', system-ui, sans-serif;
   }
+}
+
+@layer components {
+  /* Ocean Wave Animation */
+  .ocean-waves {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ocean-waves::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(56, 178, 172, 0.1), transparent);
+    animation: wave-flow 8s ease-in-out infinite;
+  }
+  
+  .dolphin-float {
+    animation: dolphin-leap 6s ease-in-out infinite;
+  }
+  
+  .meme-bounce {
+    animation: meme-bounce 2s ease-in-out infinite;
+  }
+  
+  /* Hero Button Variants */
+  .btn-hero-primary {
+    @apply bg-gradient-to-r from-aqua-bright to-ocean-light text-ocean-deep font-bold px-8 py-4 rounded-2xl border-2 border-aqua-bright;
+    @apply hover:scale-105 hover:shadow-lg hover:shadow-aqua-bright/25;
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .btn-hero-secondary {
+    @apply bg-transparent text-aqua-bright font-bold px-8 py-4 rounded-2xl border-2 border-aqua-bright;
+    @apply hover:bg-aqua-bright hover:text-ocean-deep hover:scale-105;
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  /* Card Variants */
+  .card-ocean {
+    @apply bg-gradient-to-br from-ocean-medium/80 to-ocean-deep/80 backdrop-blur-sm;
+    @apply border border-aqua-bright/20 rounded-3xl p-8;
+    @apply hover:border-aqua-bright/40 transition-all duration-300;
+  }
+  
+  .card-meme {
+    @apply bg-gradient-to-br from-aqua-light/10 to-aqua-bright/10;
+    @apply border-2 border-aqua-bright/30 rounded-2xl p-6;
+    @apply hover:border-aqua-bright/50 hover:scale-105;
+    @apply transition-all duration-300 ease-out;
+  }
+}
+
+@layer utilities {
+  /* Typography */
+  .text-gradient-ocean {
+    @apply bg-gradient-to-r from-aqua-bright to-ocean-light bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-aqua {
+    @apply bg-gradient-to-r from-aqua-light to-aqua-bright bg-clip-text text-transparent;
+  }
+  
+  /* Shadows */
+  .shadow-ocean {
+    box-shadow: 0 25px 50px -12px rgba(56, 178, 172, 0.25);
+  }
+  
+  .shadow-dolphin {
+    box-shadow: 0 10px 25px rgba(56, 178, 172, 0.3), 0 0 0 1px rgba(56, 178, 172, 0.1);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes wave-flow {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(50%); }
+}
+
+@keyframes dolphin-leap {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(-5deg); }
+  50% { transform: translateY(-15px) rotate(0deg); }
+  75% { transform: translateY(-10px) rotate(5deg); }
+}
+
+@keyframes meme-bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.05); }
 }
