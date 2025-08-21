@@ -5,17 +5,6 @@ const CommunitySection = () => {
   return (
     <section className="py-24 relative">
       <div className="container mx-auto px-4 text-center">
-        <div className="mb-16">
-          <h2 className="text-5xl font-black mb-6">
-            <span className="text-gradient-ocean hover:scale-105 transition-transform inline-block">Rule the Pod</span> 🐬
-          </h2>
-          <p className="text-2xl text-aqua-bright max-w-3xl mx-auto mb-4 font-bold">
-            "The Pod is our strength. Together we meme harder and swim smarter."
-          </p>
-          <p className="text-lg text-aqua-light max-w-2xl mx-auto">
-            Join the most democratic crypto community on TON! Every dolphin has a voice, every vote counts. 🌊
-          </p>
-        </div>
 
         {/* Community Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16 max-w-5xl mx-auto">
@@ -91,38 +80,6 @@ const CommunitySection = () => {
           </div>
         </div>
 
-        {/* Community Benefits */}
-        <div className="card-meme max-w-4xl mx-auto hover:scale-105 transition-transform">
-          <h3 className="text-2xl font-bold text-gradient-ocean mb-6">
-            <span className="hover:animate-bounce inline-block">Community Perks</span> 🎁
-          </h3>
-          
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="text-center hover:scale-110 transition-transform cursor-pointer">
-              <div className="text-3xl mb-2 hover:animate-spin">🌊</div>
-              <div className="text-aqua-bright font-semibold">Exclusive Alpha</div>
-              <div className="text-aqua-light text-sm">First to know</div>
-            </div>
-            
-            <div className="text-center hover:scale-110 transition-transform cursor-pointer">
-              <div className="text-3xl mb-2 hover:animate-bounce">💎</div>
-              <div className="text-aqua-bright font-semibold">Diamond Fins</div>
-              <div className="text-aqua-light text-sm">Holders only</div>
-            </div>
-            
-            <div className="text-center hover:scale-110 transition-transform cursor-pointer">
-              <div className="text-3xl mb-2 hover:animate-pulse">🚀</div>
-              <div className="text-aqua-bright font-semibold">Market Insights</div>
-              <div className="text-aqua-light text-sm">Early signals</div>
-            </div>
-            
-            <div className="text-center hover:scale-110 transition-transform cursor-pointer">
-              <div className="text-3xl mb-2 hover:animate-spin">🎯</div>
-              <div className="text-aqua-bright font-semibold">CTO Strategy</div>
-              <div className="text-aqua-light text-sm">Shape decisions</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
