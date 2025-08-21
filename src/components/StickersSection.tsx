@@ -10,9 +10,14 @@ const StickersSection = () => {
     window.open('https://t.me/addstickers/YOUR_STICKER_SET_NAME', '_blank');
   };
 
-  // Placeholder for when you upload actual sticker images
-  const placeholderStickers = [
-    "🐬", "💎", "🚀", "🌊", "💰", "🎯", "👑", "🔥"
+  // Actual sticker imports
+  const stickerWall = [
+    { src: require('@/assets/stickers/DolphinDolph_1_😂.gif'), alt: "Laughing Dolphin" },
+    { src: require('@/assets/stickers/DolphinDolph_2_😘.gif'), alt: "Kiss Dolphin" },
+    { src: require('@/assets/stickers/DolphinDolph_3_👍.gif'), alt: "Thumbs Up Dolphin" },
+    { src: require('@/assets/stickers/DolphinDolph_4_😨.gif'), alt: "Shocked Dolphin" },
+    { src: require('@/assets/stickers/DolphinDolph_6_😌.gif'), alt: "Content Dolphin" },
+    { src: require('@/assets/stickers/DolphinDolph_8_🤔.gif'), alt: "Thinking Dolphin" }
   ];
 
   return (
@@ -35,17 +40,21 @@ const StickersSection = () => {
           <div className="card-ocean hover:scale-[1.02] transition-all duration-300">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               
-              {/* Sticker Preview */}
+              {/* Sticker Wall */}
               <div className="text-center">
                 <div className="bg-gradient-to-br from-ocean-medium/20 to-aqua-bright/10 rounded-3xl p-8 mb-6">
-                  <div className="grid grid-cols-4 gap-4 mb-6">
-                    {placeholderStickers.map((sticker, index) => (
+                  <div className="grid grid-cols-3 gap-6 mb-6">
+                    {stickerWall.map((sticker, index) => (
                       <div
                         key={index}
-                        className="text-4xl hover:scale-125 hover:rotate-12 transition-transform cursor-pointer animate-bounce bg-ocean-medium/20 rounded-2xl p-4 hover:bg-aqua-bright/20"
+                        className="hover:scale-110 hover:rotate-6 transition-all duration-300 cursor-pointer bg-ocean-medium/20 rounded-2xl p-4 hover:bg-aqua-bright/20 hover:shadow-ocean"
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
-                        {sticker}
+                        <img 
+                          src={sticker.src} 
+                          alt={sticker.alt}
+                          className="w-16 h-16 mx-auto animate-meme-bounce"
+                        />
                       </div>
                     ))}
                   </div>
@@ -141,20 +150,6 @@ const StickersSection = () => {
             </div>
           </div>
 
-          {/* Community Call-to-Action */}
-          <div className="card-meme max-w-2xl mx-auto mt-12 text-center hover:scale-105 transition-transform">
-            <div className="text-4xl mb-4 animate-bounce">🎨</div>
-            <h3 className="text-2xl font-bold text-gradient-aqua mb-3">
-              Create & Earn
-            </h3>
-            <p className="text-aqua-light mb-6">
-              Submit your own $DOLPH sticker designs! Community favorites get featured 
-              and creators earn $DOLPH rewards.
-            </p>
-            <button className="btn-hero-primary">
-              Submit Your Designs
-            </button>
-          </div>
         </div>
       </div>
     </section>

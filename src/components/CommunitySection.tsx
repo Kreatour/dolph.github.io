@@ -94,32 +94,32 @@ const CommunitySection = () => {
         {/* Community Benefits */}
         <div className="card-meme max-w-4xl mx-auto hover:scale-105 transition-transform">
           <h3 className="text-2xl font-bold text-gradient-ocean mb-6">
-            <span className="hover:animate-bounce inline-block">Pod Member Powers</span> 🎁
+            <span className="hover:animate-bounce inline-block">Community Perks</span> 🎁
           </h3>
           
           <div className="grid md:grid-cols-4 gap-6">
             <div className="text-center hover:scale-110 transition-transform cursor-pointer">
-              <div className="text-3xl mb-2 hover:animate-spin">🗳️</div>
-              <div className="text-aqua-bright font-semibold">Voting Rights</div>
-              <div className="text-aqua-light text-sm">Shape the future</div>
-            </div>
-            
-            <div className="text-center hover:scale-110 transition-transform cursor-pointer">
-              <div className="text-3xl mb-2 hover:animate-bounce">🏆</div>
-              <div className="text-aqua-bright font-semibold">Community Rewards</div>
-              <div className="text-aqua-light text-sm">Earn $DOLPH prizes</div>
-            </div>
-            
-            <div className="text-center hover:scale-110 transition-transform cursor-pointer">
-              <div className="text-3xl mb-2 hover:animate-pulse">📢</div>
-              <div className="text-aqua-bright font-semibold">Alpha Access</div>
+              <div className="text-3xl mb-2 hover:animate-spin">🌊</div>
+              <div className="text-aqua-bright font-semibold">Exclusive Alpha</div>
               <div className="text-aqua-light text-sm">First to know</div>
             </div>
             
             <div className="text-center hover:scale-110 transition-transform cursor-pointer">
-              <div className="text-3xl mb-2 hover:animate-spin">👑</div>
-              <div className="text-aqua-bright font-semibold">Leadership</div>
-              <div className="text-aqua-light text-sm">Run for council</div>
+              <div className="text-3xl mb-2 hover:animate-bounce">💎</div>
+              <div className="text-aqua-bright font-semibold">Diamond Fins</div>
+              <div className="text-aqua-light text-sm">Holders only</div>
+            </div>
+            
+            <div className="text-center hover:scale-110 transition-transform cursor-pointer">
+              <div className="text-3xl mb-2 hover:animate-pulse">🚀</div>
+              <div className="text-aqua-bright font-semibold">Market Insights</div>
+              <div className="text-aqua-light text-sm">Early signals</div>
+            </div>
+            
+            <div className="text-center hover:scale-110 transition-transform cursor-pointer">
+              <div className="text-3xl mb-2 hover:animate-spin">🎯</div>
+              <div className="text-aqua-bright font-semibold">CTO Strategy</div>
+              <div className="text-aqua-light text-sm">Shape decisions</div>
             </div>
           </div>
         </div>
