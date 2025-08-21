@@ -1,7 +1,22 @@
 
-import { Waves, ExternalLink } from 'lucide-react';
+import { Waves, ExternalLink, Copy, Check } from 'lucide-react';
+import { useState } from 'react';
+
+const CONTRACT_ADDRESS = "EQDv...your_contract_address_here";
 
 const HeroSection = () => {
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(CONTRACT_ADDRESS);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center ocean-waves overflow-hidden">
       {/* Animated Background Elements */}
@@ -34,14 +49,42 @@ const HeroSection = () => {
         </div>
 
         {/* Subtext */}
-        <p className="text-xl md:text-2xl text-aqua-light max-w-2xl mx-auto mb-12 leading-relaxed">
+        <p className="text-xl md:text-2xl text-aqua-light max-w-2xl mx-auto mb-8 leading-relaxed">
           The smartest community-owned memecoin on TON — fast, playful, unstoppable.
           <br />
           <span className="text-foam-white font-semibold">Built by dolphins, for dolphins! 🌊</span>
         </p>
 
+        {/* Contract Address */}
+        <div className="card-meme max-w-md mx-auto mb-8 hover:scale-105 transition-transform">
+          <div className="flex items-center justify-between gap-4">
+            <div className="text-left">
+              <div className="text-sm text-aqua-light mb-1">Contract Address</div>
+              <div className="text-aqua-bright font-mono text-sm">
+                {CONTRACT_ADDRESS.slice(0, 6)}...{CONTRACT_ADDRESS.slice(-6)}
+              </div>
+            </div>
+            <button
+              onClick={copyToClipboard}
+              className="flex items-center gap-2 bg-aqua-bright/20 hover:bg-aqua-bright/30 text-aqua-bright px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-4 h-4" />
+                  Copied!
+                </>
+              ) : (
+                <>
+                  <Copy className="w-4 h-4" />
+                  Copy CA
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
           <button className="btn-hero-primary group hover:shadow-dolphin">
             <span className="flex items-center gap-2">
               Join the Pod
@@ -58,24 +101,18 @@ const HeroSection = () => {
           </button>
         </div>
 
-        {/* Fun Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-4xl mx-auto">
+        {/* Key Highlights */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
           <div className="card-meme text-center group hover:rotate-1 transition-transform">
-            <div className="text-3xl mb-2 group-hover:animate-bounce">🚀</div>
-            <div className="text-2xl font-bold text-aqua-bright">Lightning Fast</div>
-            <div className="text-aqua-light">TON Speed</div>
+            <div className="text-3xl mb-2 group-hover:animate-bounce">🏛️</div>
+            <div className="text-2xl font-bold text-aqua-bright">100% CTO</div>
+            <div className="text-aqua-light">Community Owned</div>
           </div>
           
           <div className="card-meme text-center group hover:-rotate-1 transition-transform">
-            <div className="text-3xl mb-2 group-hover:animate-pulse">🧠</div>
-            <div className="text-2xl font-bold text-aqua-bright">Community-Owned</div>
-            <div className="text-aqua-light">100% CTO</div>
-          </div>
-          
-          <div className="card-meme text-center group hover:rotate-1 transition-transform">
-            <div className="text-3xl mb-2 group-hover:scale-125 transition-transform">💎</div>
-            <div className="text-2xl font-bold text-aqua-bright">Diamond Fins</div>
-            <div className="text-aqua-light">HODL Strong</div>
+            <div className="text-3xl mb-2 group-hover:animate-pulse">💎</div>
+            <div className="text-2xl font-bold text-aqua-bright">1M Supply</div>
+            <div className="text-aqua-light">Diamond Fins</div>
           </div>
         </div>
       </div>

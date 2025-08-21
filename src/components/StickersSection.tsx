@@ -1,209 +1,161 @@
 
-import { Download, Heart, Share2 } from 'lucide-react';
+import { Download, ExternalLink, Users } from 'lucide-react';
 import { useState } from 'react';
 
-const stickerPacks = [
-  {
-    id: 1,
-    name: "Classic Dolph Vibes",
-    preview: "🐬",
-    stickers: ["🐬", "💎", "🌊", "🚀", "💰", "🎯"],
-    description: "Essential dolphin expressions for every crypto conversation",
-    downloads: "2.3K"
-  },
-  {
-    id: 2,
-    name: "Moon Mission Pack",
-    preview: "🚀",
-    stickers: ["🚀", "🌙", "💎", "📈", "🔥", "⚡"],
-    description: "For when $DOLPH is reaching new heights",
-    downloads: "1.8K"
-  },
-  {
-    id: 3,
-    name: "Diamond Fins",
-    preview: "💎",
-    stickers: ["💎", "🐬", "👑", "🏆", "💪", "🎉"],
-    description: "Premium stickers for diamond-finned holders",
-    downloads: "3.1K"
-  },
-  {
-    id: 4,
-    name: "Ocean Memes",
-    preview: "🌊",
-    stickers: ["🌊", "🐠", "🦈", "🏄‍♂️", "🏖️", "⛵"],
-    description: "Dive deep into ocean-themed crypto humor",
-    downloads: "1.5K"
-  }
-];
-
 const StickersSection = () => {
-  const [likedPacks, setLikedPacks] = useState<Set<number>>(new Set());
-  const [downloadingPacks, setDownloadingPacks] = useState<Set<number>>(new Set());
+  const [downloading, setDownloading] = useState(false);
 
-  const handleLike = (packId: number) => {
-    setLikedPacks(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(packId)) {
-        newSet.delete(packId);
-      } else {
-        newSet.add(packId);
-      }
-      return newSet;
-    });
-  };
-
-  const handleDownload = async (packId: number, packName: string) => {
-    setDownloadingPacks(prev => new Set(prev).add(packId));
+  const handleDownload = async () => {
+    setDownloading(true);
     
     // Simulate download delay
     setTimeout(() => {
-      setDownloadingPacks(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(packId);
-        return newSet;
-      });
-      
-      // In a real implementation, you would trigger actual download here
-      console.log(`Downloaded sticker pack: ${packName}`);
+      setDownloading(false);
+      console.log('Downloaded: DOLPH Sticker Pack');
     }, 1500);
   };
 
   return (
     <section className="py-24 relative">
       <div className="container mx-auto px-4">
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl font-black mb-6">
             <span className="text-gradient-ocean hover:scale-105 transition-transform inline-block">
-              Dolphin Sticker Packs
+              Express Your Pod Pride
             </span> 🎨
           </h2>
-          <p className="text-2xl text-aqua-bright max-w-3xl mx-auto mb-4 font-bold">
-            "Express yourself with premium $DOLPH stickers!"
-          </p>
-          <p className="text-lg text-aqua-light max-w-2xl mx-auto">
-            Download our exclusive community-created sticker packs for Telegram, Discord, and more! 
-            Show your dolphin pride in every conversation. 🐬✨
+          <p className="text-xl text-aqua-light max-w-2xl mx-auto">
+            Premium $DOLPH stickers for Telegram, Discord & WhatsApp
           </p>
         </div>
 
-        {/* Featured Sticker Preview */}
-        <div className="card-ocean max-w-4xl mx-auto mb-16 hover:scale-105 transition-transform">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-gradient-aqua mb-4">
-              Featured Stickers Preview 🎭
-            </h3>
-            <div className="flex justify-center items-center gap-4 flex-wrap">
-              {["🐬", "💎", "🚀", "🌊", "💰", "🎯", "👑", "🔥"].map((sticker, index) => (
-                <div
-                  key={index}
-                  className="text-6xl hover:scale-125 hover:rotate-12 transition-transform cursor-pointer animate-bounce"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {sticker}
+        {/* Featured Sticker Pack */}
+        <div className="max-w-4xl mx-auto">
+          <div className="card-ocean hover:scale-[1.02] transition-all duration-300">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              
+              {/* Sticker Preview */}
+              <div className="text-center">
+                <div className="bg-gradient-to-br from-ocean-medium/20 to-aqua-bright/10 rounded-3xl p-8 mb-6">
+                  <div className="grid grid-cols-4 gap-4 mb-6">
+                    {["🐬", "💎", "🚀", "🌊", "💰", "🎯", "👑", "🔥", "🏛️", "⚡", "🎉", "🌙"].map((sticker, index) => (
+                      <div
+                        key={index}
+                        className="text-4xl hover:scale-125 hover:rotate-12 transition-transform cursor-pointer animate-bounce bg-ocean-medium/20 rounded-2xl p-4 hover:bg-aqua-bright/20"
+                        style={{ animationDelay: `${index * 0.1}s` }}
+                      >
+                        {sticker}
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Sample Sticker Messages */}
+                  <div className="space-y-3 text-left">
+                    <div className="bg-aqua-bright/10 rounded-2xl p-3 max-w-xs">
+                      <div className="flex items-center gap-2">
+                        <span className="text-2xl">🐬</span>
+                        <span className="text-aqua-light text-sm">Swim with the pod!</span>
+                      </div>
+                    </div>
+                    <div className="bg-ocean-medium/20 rounded-2xl p-3 max-w-xs ml-auto">
+                      <div className="flex items-center gap-2 justify-end">
+                        <span className="text-aqua-light text-sm">Diamond fins only!</span>
+                        <span className="text-2xl">💎</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              ))}
+              </div>
+
+              {/* Pack Details */}
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-3xl font-bold text-gradient-aqua mb-2">
+                    Official $DOLPH Pack
+                  </h3>
+                  <p className="text-aqua-light text-lg mb-4">
+                    Express your dolphin energy with 50+ premium animated stickers featuring $DOLPH, 
+                    diamond fins, ocean vibes, and community memes.
+                  </p>
+                </div>
+
+                {/* Pack Features */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="flex items-center gap-2 hover:scale-105 transition-transform cursor-pointer">
+                    <span className="text-xl">📱</span>
+                    <span className="text-aqua-light">50+ Stickers</span>
+                  </div>
+                  <div className="flex items-center gap-2 hover:scale-105 transition-transform cursor-pointer">
+                    <span className="text-xl">✨</span>
+                    <span className="text-aqua-light">HD Quality</span>
+                  </div>
+                  <div className="flex items-center gap-2 hover:scale-105 transition-transform cursor-pointer">
+                    <span className="text-xl">🎭</span>
+                    <span className="text-aqua-light">Animated</span>
+                  </div>
+                  <div className="flex items-center gap-2 hover:scale-105 transition-transform cursor-pointer">
+                    <span className="text-xl">🌊</span>
+                    <span className="text-aqua-light">CTO Themed</span>
+                  </div>
+                </div>
+
+                {/* Download Stats */}
+                <div className="flex items-center gap-6 text-aqua-light">
+                  <div className="flex items-center gap-2">
+                    <Users className="w-4 h-4" />
+                    <span className="text-sm">12.5K downloads</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl">⭐</span>
+                    <span className="text-sm">4.9/5 rating</span>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="space-y-3">
+                  <button
+                    onClick={handleDownload}
+                    disabled={downloading}
+                    className="btn-hero-primary w-full text-lg py-4 disabled:opacity-50 disabled:cursor-not-allowed group"
+                  >
+                    {downloading ? (
+                      <span className="flex items-center justify-center gap-3">
+                        <div className="animate-spin w-5 h-5 border-2 border-current border-t-transparent rounded-full"></div>
+                        Preparing Download...
+                      </span>
+                    ) : (
+                      <span className="flex items-center justify-center gap-3">
+                        <Download className="w-5 h-5 group-hover:animate-bounce" />
+                        Download Sticker Pack
+                        <span className="text-sm opacity-75">(Free)</span>
+                      </span>
+                    )}
+                  </button>
+                  
+                  <button className="btn-hero-secondary w-full py-3">
+                    <span className="flex items-center justify-center gap-2">
+                      <ExternalLink className="w-4 h-4" />
+                      View Installation Guide
+                    </span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Sticker Packs Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {stickerPacks.map((pack) => (
-            <div
-              key={pack.id}
-              className="card-meme group hover:scale-105 hover:rotate-1 transition-all duration-300 cursor-pointer"
-            >
-              {/* Pack Preview */}
-              <div className="text-center mb-4">
-                <div className="text-6xl mb-3 group-hover:animate-bounce">
-                  {pack.preview}
-                </div>
-                <h4 className="text-xl font-bold text-gradient-aqua mb-2">
-                  {pack.name}
-                </h4>
-                <p className="text-aqua-light text-sm mb-3">
-                  {pack.description}
-                </p>
-              </div>
-
-              {/* Sticker Grid Preview */}
-              <div className="grid grid-cols-3 gap-2 mb-4">
-                {pack.stickers.map((sticker, index) => (
-                  <div
-                    key={index}
-                    className="bg-ocean-medium/30 rounded-lg p-2 text-center text-2xl hover:scale-110 transition-transform"
-                  >
-                    {sticker}
-                  </div>
-                ))}
-              </div>
-
-              {/* Pack Stats & Actions */}
-              <div className="flex items-center justify-between mb-4">
-                <div className="text-aqua-light text-sm">
-                  📥 {pack.downloads} downloads
-                </div>
-                <button
-                  onClick={() => handleLike(pack.id)}
-                  className={`flex items-center gap-1 transition-all duration-300 ${
-                    likedPacks.has(pack.id)
-                      ? 'text-red-400 scale-110'
-                      : 'text-aqua-light hover:text-red-400 hover:scale-110'
-                  }`}
-                >
-                  <Heart
-                    className={`w-4 h-4 ${likedPacks.has(pack.id) ? 'fill-current' : ''}`}
-                  />
-                </button>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="space-y-2">
-                <button
-                  onClick={() => handleDownload(pack.id, pack.name)}
-                  disabled={downloadingPacks.has(pack.id)}
-                  className="btn-hero-primary w-full text-sm py-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {downloadingPacks.has(pack.id) ? (
-                    <span className="flex items-center justify-center gap-2">
-                      <div className="animate-spin w-4 h-4 border-2 border-current border-t-transparent rounded-full"></div>
-                      Downloading...
-                    </span>
-                  ) : (
-                    <span className="flex items-center justify-center gap-2">
-                      <Download className="w-4 h-4" />
-                      Download Pack
-                    </span>
-                  )}
-                </button>
-                
-                <button className="btn-hero-secondary w-full text-sm py-2">
-                  <span className="flex items-center justify-center gap-2">
-                    <Share2 className="w-4 h-4" />
-                    Share Pack
-                  </span>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Community Creation CTA */}
-        <div className="card-ocean max-w-3xl mx-auto mt-16 text-center hover:scale-105 transition-transform">
-          <h3 className="text-2xl font-bold text-gradient-aqua mb-4">
-            Create Your Own Pack! 🎨
-          </h3>
-          <p className="text-aqua-light mb-6">
-            Got creative ideas? Submit your dolphin-themed stickers to our community! 
-            The best submissions get featured and earn $DOLPH rewards.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* Community Call-to-Action */}
+          <div className="card-meme max-w-2xl mx-auto mt-12 text-center hover:scale-105 transition-transform">
+            <div className="text-4xl mb-4 animate-bounce">🎨</div>
+            <h3 className="text-2xl font-bold text-gradient-aqua mb-3">
+              Create & Earn
+            </h3>
+            <p className="text-aqua-light mb-6">
+              Submit your own $DOLPH sticker designs! Community favorites get featured 
+              and creators earn $DOLPH rewards.
+            </p>
             <button className="btn-hero-primary">
-              Submit Stickers
-            </button>
-            <button className="btn-hero-secondary">
-              View Guidelines
+              Submit Your Designs
             </button>
           </div>
         </div>
