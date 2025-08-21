@@ -1,6 +1,7 @@
 
 import { Waves, ExternalLink, Copy, Check } from 'lucide-react';
 import { useState } from 'react';
+import dolphSticker from '@/assets/stickers/DolphinDolph_5_👋.gif';
 
 const CONTRACT_ADDRESS = "EQDv...your_contract_address_here";
 
@@ -43,9 +44,9 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* Dolphin Emoji Hero */}
-        <div className="text-9xl mb-8 dolphin-float hover:scale-125 transition-transform cursor-pointer">
-          🐬
+        {/* Dolphin Sticker Hero */}
+        <div className="mb-8 dolphin-float hover:scale-125 transition-transform cursor-pointer flex justify-center">
+          <img src={dolphSticker} alt="Dolphin Dolph waving" className="w-32 h-32 md:w-48 md:h-48" />
         </div>
 
         {/* Subtext */}
