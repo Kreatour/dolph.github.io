@@ -2,6 +2,14 @@
 import { Download, ExternalLink, Users } from 'lucide-react';
 import { useState } from 'react';
 
+// Import sticker GIFs
+import sticker1 from '@/assets/stickers/DolphinDolph_1_😂.gif';
+import sticker2 from '@/assets/stickers/DolphinDolph_2_😘.gif';
+import sticker3 from '@/assets/stickers/DolphinDolph_3_👍.gif';
+import sticker4 from '@/assets/stickers/DolphinDolph_4_😨.gif';
+import sticker6 from '@/assets/stickers/DolphinDolph_6_😌.gif';
+import sticker8 from '@/assets/stickers/DolphinDolph_8_🤔.gif';
+
 const StickersSection = () => {
   const [downloading, setDownloading] = useState(false);
 
@@ -12,12 +20,12 @@ const StickersSection = () => {
 
   // Actual sticker imports
   const stickerWall = [
-    { src: require('@/assets/stickers/DolphinDolph_1_😂.gif'), alt: "Laughing Dolphin" },
-    { src: require('@/assets/stickers/DolphinDolph_2_😘.gif'), alt: "Kiss Dolphin" },
-    { src: require('@/assets/stickers/DolphinDolph_3_👍.gif'), alt: "Thumbs Up Dolphin" },
-    { src: require('@/assets/stickers/DolphinDolph_4_😨.gif'), alt: "Shocked Dolphin" },
-    { src: require('@/assets/stickers/DolphinDolph_6_😌.gif'), alt: "Content Dolphin" },
-    { src: require('@/assets/stickers/DolphinDolph_8_🤔.gif'), alt: "Thinking Dolphin" }
+    { src: sticker1, alt: "Laughing Dolphin" },
+    { src: sticker2, alt: "Kiss Dolphin" },
+    { src: sticker3, alt: "Thumbs Up Dolphin" },
+    { src: sticker4, alt: "Shocked Dolphin" },
+    { src: sticker6, alt: "Content Dolphin" },
+    { src: sticker8, alt: "Thinking Dolphin" }
   ];
 
   return (
