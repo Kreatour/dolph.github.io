@@ -1,6 +1,5 @@
 
-import { Download, ExternalLink, Users } from 'lucide-react';
-import { useState } from 'react';
+import { ExternalLink } from 'lucide-react';
 
 // Import sticker GIFs
 import sticker1 from '@/assets/stickers/DolphinDolph_1_😂.gif';
@@ -70,21 +69,6 @@ const StickersSection = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-aqua-bright/10 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
                   ))}
-                </div>
-                
-                {/* Pack Info */}
-                <div className="mt-8 text-center">
-                  <div className="inline-flex items-center gap-4 bg-ocean-deep/20 rounded-full px-6 py-3 backdrop-blur-sm">
-                    <div className="flex items-center gap-2 text-aqua-light">
-                      <Users className="w-4 h-4" />
-                      <span className="text-sm font-medium">12.5K+ downloads</span>
-                    </div>
-                    <div className="w-1 h-1 bg-aqua-light/50 rounded-full"></div>
-                    <div className="flex items-center gap-2 text-aqua-light">
-                      <span className="text-lg">⭐</span>
-                      <span className="text-sm font-medium">4.9/5 rating</span>
-                    </div>
-                  </div>
                 </div>
               </div>
 

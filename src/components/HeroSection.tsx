@@ -1,5 +1,5 @@
 
-import { Waves, ExternalLink, Copy, Check } from 'lucide-react';
+import { Waves, ExternalLink, Copy, Check, MessageCircle, Twitter } from 'lucide-react';
 import { useState } from 'react';
 import dolphSticker from '@/assets/stickers/DolphinDolph_5_👋.gif';
 
@@ -16,6 +16,14 @@ const HeroSection = () => {
     } catch (err) {
       console.error('Failed to copy:', err);
     }
+  };
+
+  const handleTelegramClick = () => {
+    window.open('https://t.me/your_telegram_group', '_blank');
+  };
+
+  const handleTwitterClick = () => {
+    window.open('https://twitter.com/your_twitter', '_blank');
   };
 
   return (
@@ -84,12 +92,21 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* CTA Buttons */}
+        {/* Social Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-          <button className="btn-hero-primary group hover:shadow-dolphin">
+          <button onClick={handleTelegramClick} className="btn-hero-primary group hover:shadow-dolphin">
             <span className="flex items-center gap-2">
-              Join the Pod
-              <ExternalLink className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+              <MessageCircle className="w-5 h-5 group-hover:animate-bounce" />
+              Join Telegram
+              <ExternalLink className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+            </span>
+          </button>
+          
+          <button onClick={handleTwitterClick} className="btn-hero-secondary group hover:shadow-ocean">
+            <span className="flex items-center gap-2">
+              <Twitter className="w-5 h-5 group-hover:animate-pulse" />
+              Follow on X
+              <ExternalLink className="w-4 h-4 group-hover:rotate-12 transition-transform" />
             </span>
           </button>
           
@@ -97,7 +114,7 @@ const HeroSection = () => {
             <span className="flex items-center gap-2">
               <Waves className="w-5 h-5 group-hover:animate-pulse" />
               Buy $DOLPH
-              <ExternalLink className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+              <ExternalLink className="w-4 h-4 group-hover:rotate-12 transition-transform" />
             </span>
           </button>
         </div>
