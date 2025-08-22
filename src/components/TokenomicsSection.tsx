@@ -1,13 +1,5 @@
 
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 import dolphSticker14 from '@/assets/stickers/DolphinDolph_14_💪.gif';
-
-const tokenomicsData = [
-  { name: 'Liquidity Pool', value: 50, emoji: '🌊', color: '#00CED1' },
-  { name: 'Community Treasury', value: 30, emoji: '🏛️', color: '#48CAE4' },
-  { name: 'Marketing Fund', value: 15, emoji: '📢', color: '#0077BE' },
-  { name: 'Emergency Reserve', value: 5, emoji: '🛡️', color: '#023E8A' }
-];
 
 const TokenomicsSection = () => {
   return (
@@ -15,95 +7,40 @@ const TokenomicsSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-black mb-6">
-            <span className="text-gradient-ocean hover:scale-105 transition-transform inline-block">Community Tokenomics</span> 💎
+            <span className="text-gradient-ocean hover:scale-105 transition-transform inline-block">$DOLPH Stats</span> 💎
           </h2>
           <p className="text-xl text-aqua-light max-w-2xl mx-auto mb-8">
-            100% community-controlled allocation — no dev wallets, pure CTO
+            100% community-controlled — no dev wallets, pure CTO
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          {/* Pie Chart */}
+        <div className="max-w-2xl mx-auto">
+          {/* Dolphin Sticker with Key Stats */}
           <div className="card-ocean hover:scale-105 transition-transform">
-            <h3 className="text-2xl font-bold text-center mb-8 text-gradient-aqua">
-              $DOLPH Distribution 🐬
-            </h3>
-            
-            <div className="h-80">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={tokenomicsData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={60}
-                    outerRadius={120}
-                    paddingAngle={5}
-                    dataKey="value"
-                  >
-                    {tokenomicsData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <Legend />
-                </PieChart>
-              </ResponsiveContainer>
+            <div className="text-center mb-8">
+              <img 
+                src={dolphSticker14} 
+                alt="Strong Dolphin Dolph" 
+                className="w-32 h-32 mx-auto mb-6 dolphin-float hover:scale-125 transition-transform cursor-pointer"
+              />
+              <div className="text-2xl font-black text-gradient-aqua mb-4">Diamond Fins Strong! 💪</div>
             </div>
-          </div>
-
-          {/* Breakdown Cards */}
-          <div className="space-y-6">
-            {tokenomicsData.map((item, index) => (
-              <div key={index} className="card-meme hover:rotate-1 hover:scale-105 transition-transform group">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <span className="text-3xl group-hover:animate-bounce">{item.emoji}</span>
-                    <div>
-                      <h4 className="text-lg font-bold text-aqua-bright">{item.name}</h4>
-                      <p className="text-aqua-light text-sm">
-                        {item.name === 'Liquidity Pool' && 'Locked liquidity for stable trading'}
-                        {item.name === 'Community Treasury' && 'Controlled by community votes'}
-                        {item.name === 'Marketing Fund' && 'Community-approved campaigns'}
-                        {item.name === 'Emergency Reserve' && 'Safety fund for the pod'}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div 
-                      className="text-2xl font-black group-hover:scale-110 transition-transform"
-                      style={{ color: item.color }}
-                    >
-                      {item.value}%
-                    </div>
-                  </div>
-                </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              <div className="group hover:scale-110 transition-transform cursor-pointer p-6 rounded-2xl hover:bg-aqua-bright/10">
+                <div className="text-4xl md:text-5xl font-black text-aqua-bright mb-2 group-hover:animate-bounce">1M</div>
+                <div className="text-aqua-light text-lg font-semibold">Total Supply</div>
+                <div className="text-aqua-light/70 text-sm mt-1">Fixed forever</div>
               </div>
-            ))}
-
-            {/* Dolphin Sticker with Key Stats */}
-            <div className="card-ocean mt-8 hover:scale-105 transition-transform">
-              <div className="text-center mb-6">
-                <img 
-                  src={dolphSticker14} 
-                  alt="Strong Dolphin Dolph" 
-                  className="w-24 h-24 mx-auto mb-4 dolphin-float hover:scale-125 transition-transform cursor-pointer"
-                />
-                <div className="text-lg font-bold text-aqua-bright mb-2">Diamond Fins Strong! 💪</div>
+              <div className="group hover:scale-110 transition-transform cursor-pointer p-6 rounded-2xl hover:bg-aqua-bright/10">
+                <div className="text-4xl md:text-5xl font-black text-aqua-bright mb-2 group-hover:animate-bounce">0%</div>
+                <div className="text-aqua-light text-lg font-semibold">Tax</div>
+                <div className="text-aqua-light/70 text-sm mt-1">No hidden fees</div>
               </div>
-              
-              <div className="grid grid-cols-3 gap-6 text-center">
-                <div className="hover:scale-110 transition-transform cursor-pointer">
-                  <div className="text-3xl font-black text-aqua-bright">1M</div>
-                  <div className="text-aqua-light">Total Supply</div>
-                </div>
-                <div className="hover:scale-110 transition-transform cursor-pointer">
-                  <div className="text-3xl font-black text-aqua-bright">0%</div>
-                  <div className="text-aqua-light">Tax</div>
-                </div>
-                <div className="hover:scale-110 transition-transform cursor-pointer">
-                  <div className="text-3xl font-black text-aqua-bright">100%</div>
-                  <div className="text-aqua-light">Community</div>
-                </div>
+              <div className="group hover:scale-110 transition-transform cursor-pointer p-6 rounded-2xl hover:bg-aqua-bright/10">
+                <div className="text-4xl md:text-5xl font-black text-aqua-bright mb-2 group-hover:animate-bounce">100%</div>
+                <div className="text-aqua-light text-lg font-semibold">Community</div>
+                <div className="text-aqua-light/70 text-sm mt-1">True CTO</div>
               </div>
             </div>
           </div>

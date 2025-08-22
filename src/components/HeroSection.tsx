@@ -1,23 +1,8 @@
 
-import { Waves, ExternalLink, Copy, Check, MessageCircle, Twitter } from 'lucide-react';
-import { useState } from 'react';
+import { Waves, ExternalLink, MessageCircle, Twitter } from 'lucide-react';
 import dolphSticker from '@/assets/stickers/DolphinDolph_5_👋.gif';
 
-const CONTRACT_ADDRESS = "EQDv...your_contract_address_here";
-
 const HeroSection = () => {
-  const [copied, setCopied] = useState(false);
-
-  const copyToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText(CONTRACT_ADDRESS);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
-  };
-
   const handleTelegramClick = () => {
     window.open('https://t.me/your_telegram_group', '_blank');
   };
@@ -64,36 +49,8 @@ const HeroSection = () => {
           <span className="text-foam-white font-semibold">Built by dolphins, for dolphins! 🌊</span>
         </p>
 
-        {/* Contract Address */}
-        <div className="card-meme max-w-md mx-auto mb-8 hover:scale-105 transition-transform">
-          <div className="flex items-center justify-between gap-4">
-            <div className="text-left">
-              <div className="text-sm text-aqua-light mb-1">Contract Address</div>
-              <div className="text-aqua-bright font-mono text-sm">
-                {CONTRACT_ADDRESS.slice(0, 6)}...{CONTRACT_ADDRESS.slice(-6)}
-              </div>
-            </div>
-            <button
-              onClick={copyToClipboard}
-              className="flex items-center gap-2 bg-aqua-bright/20 hover:bg-aqua-bright/30 text-aqua-bright px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105"
-            >
-              {copied ? (
-                <>
-                  <Check className="w-4 h-4" />
-                  Copied!
-                </>
-              ) : (
-                <>
-                  <Copy className="w-4 h-4" />
-                  Copy CA
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-
         {/* Buy Button */}
-        <div className="mb-8">
+        <div className="mb-12">
           <button className="btn-hero-primary group hover:shadow-ocean text-lg px-8 py-4">
             <span className="flex items-center gap-2">
               <Waves className="w-5 h-5 group-hover:animate-pulse" />
@@ -105,26 +62,34 @@ const HeroSection = () => {
 
         {/* Join Pod Section */}
         <div className="mb-16">
-          <h3 className="text-2xl md:text-3xl font-bold text-aqua-bright mb-6 flex items-center justify-center gap-2">
-            <span className="text-3xl">🐬</span>
+          <h3 className="text-3xl md:text-4xl font-black text-gradient-aqua mb-8 flex items-center justify-center gap-3">
+            <span className="text-4xl animate-bounce">🐬</span>
             Join the Pod
-            <span className="text-3xl">🐬</span>
+            <span className="text-4xl animate-bounce" style={{ animationDelay: '0.5s' }}>🐬</span>
           </h3>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
-            <button onClick={handleTelegramClick} className="btn-hero-primary group hover:shadow-dolphin w-full sm:w-auto">
-              <span className="flex items-center gap-2 justify-center">
-                <MessageCircle className="w-5 h-5 group-hover:animate-bounce" />
-                Telegram
-                <span className="text-xl">🐠</span>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center max-w-2xl mx-auto">
+            <button 
+              onClick={handleTelegramClick} 
+              className="group relative bg-gradient-to-r from-aqua-bright to-ocean-light text-ocean-deep font-bold px-8 py-4 rounded-2xl hover:scale-110 hover:rotate-2 transition-all duration-300 hover:shadow-2xl hover:shadow-aqua-bright/30 w-full sm:w-auto overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-aqua-bright/20 to-ocean-light/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative flex items-center justify-center gap-3">
+                <MessageCircle className="w-6 h-6 group-hover:animate-bounce" />
+                <span className="text-lg">Join Telegram</span>
+                <span className="text-2xl group-hover:animate-pulse">🐠</span>
               </span>
             </button>
             
-            <button onClick={handleTwitterClick} className="btn-hero-secondary group hover:shadow-ocean w-full sm:w-auto">
-              <span className="flex items-center gap-2 justify-center">
-                <Twitter className="w-5 h-5 group-hover:animate-pulse" />
-                Follow X
-                <span className="text-xl">🌊</span>
+            <button 
+              onClick={handleTwitterClick} 
+              className="group relative bg-gradient-to-r from-ocean-medium to-aqua-light text-foam-white font-bold px-8 py-4 rounded-2xl hover:scale-110 hover:-rotate-2 transition-all duration-300 hover:shadow-2xl hover:shadow-ocean-medium/30 w-full sm:w-auto overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-ocean-medium/20 to-aqua-light/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative flex items-center justify-center gap-3">
+                <Twitter className="w-6 h-6 group-hover:animate-spin" />
+                <span className="text-lg">Follow X</span>
+                <span className="text-2xl group-hover:animate-pulse">🌊</span>
               </span>
             </button>
           </div>
