@@ -1,7 +1,6 @@
 
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
-import { Copy, Check } from 'lucide-react';
-import { useState } from 'react';
+import dolphSticker14 from '@/assets/stickers/DolphinDolph_14_💪.gif';
 
 const tokenomicsData = [
   { name: 'Liquidity Pool', value: 50, emoji: '🌊', color: '#00CED1' },
@@ -10,21 +9,7 @@ const tokenomicsData = [
   { name: 'Emergency Reserve', value: 5, emoji: '🛡️', color: '#023E8A' }
 ];
 
-const CONTRACT_ADDRESS = "EQDv...your_contract_address_here";
-
 const TokenomicsSection = () => {
-  const [copied, setCopied] = useState(false);
-
-  const copyToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText(CONTRACT_ADDRESS);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
-  };
-
   return (
     <section className="py-24 relative">
       <div className="container mx-auto px-4">
@@ -35,34 +20,6 @@ const TokenomicsSection = () => {
           <p className="text-xl text-aqua-light max-w-2xl mx-auto mb-8">
             100% community-controlled allocation — no dev wallets, pure CTO
           </p>
-          
-          {/* Contract Address */}
-          <div className="card-meme max-w-md mx-auto hover:scale-105 transition-transform">
-            <div className="flex items-center justify-between gap-4">
-              <div className="text-left">
-                <div className="text-sm text-aqua-light mb-1">Contract Address</div>
-                <div className="text-aqua-bright font-mono text-sm">
-                  {CONTRACT_ADDRESS.slice(0, 6)}...{CONTRACT_ADDRESS.slice(-6)}
-                </div>
-              </div>
-              <button
-                onClick={copyToClipboard}
-                className="flex items-center gap-2 bg-aqua-bright/20 hover:bg-aqua-bright/30 text-aqua-bright px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105"
-              >
-                {copied ? (
-                  <>
-                    <Check className="w-4 h-4" />
-                    Copied!
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-4 h-4" />
-                    Copy
-                  </>
-                )}
-              </button>
-            </div>
-          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -123,8 +80,17 @@ const TokenomicsSection = () => {
               </div>
             ))}
 
-            {/* Key Stats */}
+            {/* Dolphin Sticker with Key Stats */}
             <div className="card-ocean mt-8 hover:scale-105 transition-transform">
+              <div className="text-center mb-6">
+                <img 
+                  src={dolphSticker14} 
+                  alt="Strong Dolphin Dolph" 
+                  className="w-24 h-24 mx-auto mb-4 dolphin-float hover:scale-125 transition-transform cursor-pointer"
+                />
+                <div className="text-lg font-bold text-aqua-bright mb-2">Diamond Fins Strong! 💪</div>
+              </div>
+              
               <div className="grid grid-cols-3 gap-6 text-center">
                 <div className="hover:scale-110 transition-transform cursor-pointer">
                   <div className="text-3xl font-black text-aqua-bright">1M</div>

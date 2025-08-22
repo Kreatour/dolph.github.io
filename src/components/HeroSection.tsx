@@ -92,25 +92,9 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Social Buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-          <button onClick={handleTelegramClick} className="btn-hero-primary group hover:shadow-dolphin">
-            <span className="flex items-center gap-2">
-              <MessageCircle className="w-5 h-5 group-hover:animate-bounce" />
-              Join Telegram
-              <ExternalLink className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-            </span>
-          </button>
-          
-          <button onClick={handleTwitterClick} className="btn-hero-secondary group hover:shadow-ocean">
-            <span className="flex items-center gap-2">
-              <Twitter className="w-5 h-5 group-hover:animate-pulse" />
-              Follow on X
-              <ExternalLink className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-            </span>
-          </button>
-          
-          <button className="btn-hero-secondary group hover:shadow-ocean">
+        {/* Buy Button */}
+        <div className="mb-8">
+          <button className="btn-hero-primary group hover:shadow-ocean text-lg px-8 py-4">
             <span className="flex items-center gap-2">
               <Waves className="w-5 h-5 group-hover:animate-pulse" />
               Buy $DOLPH
@@ -119,18 +103,30 @@ const HeroSection = () => {
           </button>
         </div>
 
-        {/* Key Highlights */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-          <div className="card-meme text-center group hover:rotate-1 transition-transform">
-            <div className="text-3xl mb-2 group-hover:animate-bounce">🏛️</div>
-            <div className="text-2xl font-bold text-aqua-bright">100% CTO</div>
-            <div className="text-aqua-light">Community Owned</div>
-          </div>
+        {/* Join Pod Section */}
+        <div className="mb-16">
+          <h3 className="text-2xl md:text-3xl font-bold text-aqua-bright mb-6 flex items-center justify-center gap-2">
+            <span className="text-3xl">🐬</span>
+            Join the Pod
+            <span className="text-3xl">🐬</span>
+          </h3>
           
-          <div className="card-meme text-center group hover:-rotate-1 transition-transform">
-            <div className="text-3xl mb-2 group-hover:animate-pulse">💎</div>
-            <div className="text-2xl font-bold text-aqua-bright">1M Supply</div>
-            <div className="text-aqua-light">Diamond Fins</div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
+            <button onClick={handleTelegramClick} className="btn-hero-primary group hover:shadow-dolphin w-full sm:w-auto">
+              <span className="flex items-center gap-2 justify-center">
+                <MessageCircle className="w-5 h-5 group-hover:animate-bounce" />
+                Telegram
+                <span className="text-xl">🐠</span>
+              </span>
+            </button>
+            
+            <button onClick={handleTwitterClick} className="btn-hero-secondary group hover:shadow-ocean w-full sm:w-auto">
+              <span className="flex items-center gap-2 justify-center">
+                <Twitter className="w-5 h-5 group-hover:animate-pulse" />
+                Follow X
+                <span className="text-xl">🌊</span>
+              </span>
+            </button>
           </div>
         </div>
       </div>
