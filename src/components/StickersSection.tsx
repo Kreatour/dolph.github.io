@@ -1,13 +1,15 @@
 
 import { ExternalLink } from 'lucide-react';
 
-// Import sticker GIFs
+// Import sticker GIFs - ensuring all paths are correct
 import sticker1 from '@/assets/stickers/DolphinDolph_1_😂.gif';
 import sticker2 from '@/assets/stickers/DolphinDolph_2_😘.gif';
 import sticker3 from '@/assets/stickers/DolphinDolph_3_👍.gif';
 import sticker4 from '@/assets/stickers/DolphinDolph_4_😨.gif';
 import sticker6 from '@/assets/stickers/DolphinDolph_6_😌.gif';
 import sticker8 from '@/assets/stickers/DolphinDolph_8_🤔.gif';
+import sticker9 from '@/assets/stickers/DolphinDolph_9_🧐.gif';
+import sticker10 from '@/assets/stickers/DolphinDolph_10_😭.gif';
 
 const StickersSection = () => {
   const handleTelegramRedirect = () => {
@@ -20,7 +22,9 @@ const StickersSection = () => {
     { src: sticker3, alt: "Thumbs Up Dolphin", emoji: "👍" },
     { src: sticker4, alt: "Shocked Dolphin", emoji: "😨" },
     { src: sticker6, alt: "Content Dolphin", emoji: "😌" },
-    { src: sticker8, alt: "Thinking Dolphin", emoji: "🤔" }
+    { src: sticker8, alt: "Thinking Dolphin", emoji: "🤔" },
+    { src: sticker9, alt: "Curious Dolphin", emoji: "🧐" },
+    { src: sticker10, alt: "Crying Dolphin", emoji: "😭" }
   ];
 
   return (
@@ -45,7 +49,7 @@ const StickersSection = () => {
             {/* Main Sticker Wall */}
             <div className="text-center mb-12">
               <div className="bg-gradient-to-br from-ocean-medium/30 to-aqua-bright/20 rounded-3xl p-8 mb-8">
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-2xl mx-auto">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto">
                   {stickerWall.map((sticker, index) => (
                     <div
                       key={index}
@@ -58,6 +62,10 @@ const StickersSection = () => {
                           src={sticker.src} 
                           alt={sticker.alt}
                           className="w-20 h-20 md:w-24 md:h-24 mx-auto animate-meme-bounce group-hover:animate-pulse"
+                          onError={(e) => {
+                            console.log(`Failed to load sticker: ${sticker.src}`);
+                            e.currentTarget.style.display = 'none';
+                          }}
                         />
                         {/* Emoji Badge */}
                         <div className="absolute -top-2 -right-2 w-8 h-8 bg-aqua-bright/90 rounded-full flex items-center justify-center text-lg backdrop-blur-sm border-2 border-ocean-medium/30">
