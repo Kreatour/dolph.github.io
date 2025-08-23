@@ -80,9 +80,7 @@ const FriendsSection = () => {
                       alt={friend.name}
                       className="w-16 h-16 object-contain rounded-full"
                     />
-                  ) : (
-                    friend.emoji
-                  )}
+                  ) : null}
                 </div>
                 
                 {/* Friend Name */}
