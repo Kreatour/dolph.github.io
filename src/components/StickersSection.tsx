@@ -13,7 +13,7 @@ import sticker10 from '@/assets/stickers/DolphinDolph_10_😭.gif';
 
 const StickersSection = () => {
   const handleTelegramRedirect = () => {
-    window.open('https://t.me/addstickers/YOUR_STICKER_SET_NAME', '_blank');
+    window.open('https://t.me/addstickers/DolphinDolph', '_blank');
   };
 
   const stickerWall = [
@@ -80,8 +80,8 @@ const StickersSection = () => {
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="max-w-md mx-auto space-y-4">
+              {/* Action Button */}
+              <div className="max-w-md mx-auto">
                 <button
                   onClick={handleTelegramRedirect}
                   className="btn-hero-primary w-full text-lg py-4 group"
@@ -92,13 +92,6 @@ const StickersSection = () => {
                     </svg>
                     Add to Telegram
                     <span className="text-sm opacity-75">(Free)</span>
-                  </span>
-                </button>
-                
-                <button className="btn-hero-secondary w-full py-3">
-                  <span className="flex items-center justify-center gap-2">
-                    <ExternalLink className="w-4 h-4" />
-                    How to Add Stickers
                   </span>
                 </button>
               </div>
