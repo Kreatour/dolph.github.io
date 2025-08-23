@@ -1,7 +1,6 @@
 
 import HeroSection from "@/components/HeroSection";
 import TokenomicsSection from "@/components/TokenomicsSection";
-import RoadmapSection from "@/components/RoadmapSection";
 import StickersSection from "@/components/StickersSection";
 import FriendsSection from "@/components/FriendsSection";
 import PodWarsSection from "@/components/PodWarsSection";
@@ -12,7 +11,6 @@ const Index = () => {
     <div className="min-h-screen">
       <HeroSection />
       <TokenomicsSection />
-      <RoadmapSection />
       <StickersSection />
       <FriendsSection />
       <PodWarsSection />
