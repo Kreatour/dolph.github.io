@@ -12,8 +12,8 @@ const Index = () => {
       <HeroSection />
       <TokenomicsSection />
       <StickersSection />
-      <FriendsSection />
       <PodWarsSection />
+      <FriendsSection />
       <Footer />
     </div>
   );

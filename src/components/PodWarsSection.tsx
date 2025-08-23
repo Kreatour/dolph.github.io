@@ -55,7 +55,13 @@ const PodWarsSection = () => {
               {leaderboardData.length === 0 ? (
                 // Empty state
                 <div className="text-center py-16">
-                  <div className="text-6xl mb-4">🐬</div>
+                  <div className="text-6xl mb-4">
+                    <img 
+                      src="/src/assets/stickers/DolphinDolph_8_🤔.gif" 
+                      alt="Dolph thinking" 
+                      className="w-16 h-16 mx-auto"
+                    />
+                  </div>
                   <h3 className="text-2xl font-bold text-aqua-bright mb-2">Pod Wars Coming Soon!</h3>
                   <p className="text-aqua-light">The leaderboard will be updated when pods start competing.</p>
                 </div>
