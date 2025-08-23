@@ -4,11 +4,11 @@ import dolphSticker from '@/assets/stickers/DolphinDolph_5_👋.gif';
 
 const HeroSection = () => {
   const handleTelegramClick = () => {
-    window.open('https://t.me/your_telegram_group', '_blank');
+    window.open('https://t.me/dolphyonton', '_blank');
   };
 
   const handleTwitterClick = () => {
-    window.open('https://twitter.com/your_twitter', '_blank');
+    window.open('https://x.com/Dolphonton?t=Y2pDM-JqhhkFiB4eInC_Dg&s=09', '_blank');
   };
 
   return (
