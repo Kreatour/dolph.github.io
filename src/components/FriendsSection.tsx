@@ -1,34 +1,11 @@
 
-import { ExternalLink, Heart } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import mrAssSticker from '@/assets/stickers/MrAss_👋.gif';
 import owledDidiSticker from '@/assets/stickers/OwledDidi_🤔.gif';
+import dolphinLoveSticker from '@/assets/stickers/DolphinDolph_15_❤️.gif';
 
 const FriendsSection = () => {
   const friends = [
-    {
-      name: "$PEPE",
-      emoji: "🐸",
-      description: "The legendary green frog that started it all",
-      color: "from-green-400 to-green-600"
-    },
-    {
-      name: "$DOGE",
-      emoji: "🐕",
-      description: "Much wow, very friend, such community",
-      color: "from-yellow-400 to-orange-500"
-    },
-    {
-      name: "$SHIB",
-      emoji: "🐕‍🦺",
-      description: "The Shiba army stands with the pod",
-      color: "from-orange-400 to-red-500"
-    },
-    {
-      name: "$BONK",
-      emoji: "🔨",
-      description: "Bonking together toward the moon",
-      color: "from-purple-400 to-pink-500"
-    },
     {
       name: "PEDRO",
       image: "/lovable-uploads/d0fc7027-f54d-4b77-a8d9-4e9df6585d98.png",
@@ -67,7 +44,11 @@ const FriendsSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black mb-6">
             <span className="text-gradient-ocean hover:scale-105 transition-transform inline-block">Friends of DOLPH</span> 
-            <Heart className="inline-block w-12 h-12 text-aqua-bright ml-4 animate-pulse" />
+            <img 
+              src={dolphinLoveSticker} 
+              alt="Dolph Love"
+              className="inline-block w-12 h-12 ml-4 animate-pulse"
+            />
           </h2>
           <p className="text-lg md:text-xl text-aqua-light max-w-2xl mx-auto">
             The meme family that swims together, moons together! 🌊
@@ -173,10 +154,10 @@ const FriendsSection = () => {
               <span className="text-foam-white font-semibold">One ocean, many dolphins! 🌊</span>
             </p>
             <div className="flex justify-center gap-4 text-2xl">
-              <span className="animate-pulse">🐸</span>
-              <span className="animate-pulse" style={{ animationDelay: '0.2s' }}>🐕</span>
+              <span className="animate-pulse">🦝</span>
+              <span className="animate-pulse" style={{ animationDelay: '0.2s' }}>🍑</span>
               <span className="animate-pulse" style={{ animationDelay: '0.4s' }}>🐬</span>
-              <span className="animate-pulse" style={{ animationDelay: '0.6s' }}>🔨</span>
+              <span className="animate-pulse" style={{ animationDelay: '0.6s' }}>🐱</span>
             </div>
           </div>
         </div>
