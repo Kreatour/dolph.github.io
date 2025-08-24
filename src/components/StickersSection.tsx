@@ -13,7 +13,11 @@ import sticker10 from '@/assets/stickers/DolphinDolph_10_😭.gif';
 
 const StickersSection = () => {
   const handleTelegramRedirect = () => {
-    window.open('https://t.me/addstickers/DolphinDolph', '_blank');
+    window.open('https://t.me/addstickers/Dolphy5', '_blank');
+  };
+
+  const handleBuyRedirect = () => {
+    window.open('https://t.me/stonks_sniper_bot?start=id=chibhanzi=EQAY6Vsa6OzGS_t296NcMW4BLvC2i7NUGno3Ap5vljJV4yAQ', '_blank');
   };
 
   const stickerWall = [
@@ -80,8 +84,8 @@ const StickersSection = () => {
                 </div>
               </div>
 
-              {/* Action Button */}
-              <div className="max-w-md mx-auto">
+              {/* Action Buttons */}
+              <div className="max-w-md mx-auto space-y-4">
                 <button
                   onClick={handleTelegramRedirect}
                   className="btn-hero-primary w-full text-lg py-4 group"
@@ -92,6 +96,16 @@ const StickersSection = () => {
                     </svg>
                     Add to Telegram
                     <span className="text-sm opacity-75">(Free)</span>
+                  </span>
+                </button>
+                
+                <button
+                  onClick={handleBuyRedirect}
+                  className="btn-hero-primary w-full text-lg py-4 group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
+                >
+                  <span className="flex items-center justify-center gap-3">
+                    <span className="text-2xl">💰</span>
+                    Buy $DOLPH
                   </span>
                 </button>
               </div>
