@@ -7,6 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import thinkingSticker from '@/assets/stickers/DolphinDolph_8_🤔.gif';
 
 const PodWarsSection = () => {
   // Empty leaderboard data - easily editable for manual entry
@@ -55,9 +56,11 @@ const PodWarsSection = () => {
                 // Empty state
                 <div className="text-center py-16">
                   <div className="text-6xl mb-4">
-                    <div className="w-16 h-16 mx-auto text-4xl flex items-center justify-center">
-                      🤔
-                    </div>
+                    <img 
+                      src={thinkingSticker} 
+                      alt="Dolph thinking" 
+                      className="w-16 h-16 mx-auto animate-pulse"
+                    />
                   </div>
                   <h3 className="text-2xl font-bold text-aqua-bright mb-2">Pod Wars Coming Soon!</h3>
                   <p className="text-aqua-light">The leaderboard will be updated when pods start competing.</p>
