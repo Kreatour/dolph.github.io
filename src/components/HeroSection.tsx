@@ -1,8 +1,25 @@
-
-import { Waves, ExternalLink, MessageCircle, Twitter } from 'lucide-react';
+import { Waves, ExternalLink, MessageCircle, Twitter, Copy, Check } from 'lucide-react';
+import { useState } from 'react';
 import dolphSticker from '@/assets/stickers/DolphinDolph_5_👋.gif';
 
 const HeroSection = () => {
+  const [copied, setCopied] = useState(false);
+  const contractAddress = 'EQAY6Vsa6OzGS_t296NcMW4BLvC2i7NUGno3Ap5vljJV4yAQ';
+
+  const handleBuyClick = () => {
+    window.open('https://t.me/stonks_sniper_bot?start=id=chibhanzi=EQAY6Vsa6OzGS_t296NcMW4BLvC2i7NUGno3Ap5vljJV4yAQ', '_blank');
+  };
+
+  const handleCopyCA = async () => {
+    try {
+      await navigator.clipboard.writeText(contractAddress);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
+
   const handleTelegramClick = () => {
     window.open('https://t.me/dolphyonton', '_blank');
   };
@@ -49,15 +66,36 @@ const HeroSection = () => {
           <span className="text-foam-white font-semibold">Built by dolphins, for dolphins! 🌊</span>
         </p>
 
-        {/* Buy Button */}
-        <div className="mb-12">
-          <button className="btn-hero-primary group hover:shadow-ocean text-lg px-8 py-4">
+        {/* Buy Button and Contract Address */}
+        <div className="mb-8 space-y-4">
+          <button onClick={handleBuyClick} className="btn-hero-primary group hover:shadow-ocean text-lg px-8 py-4">
             <span className="flex items-center gap-2">
               <Waves className="w-5 h-5 group-hover:animate-pulse" />
               Buy $DOLPH
               <ExternalLink className="w-4 h-4 group-hover:rotate-12 transition-transform" />
             </span>
           </button>
+          
+          {/* Contract Address Copy Feature */}
+          <div className="flex items-center justify-center gap-3 max-w-lg mx-auto">
+            <span className="text-aqua-light text-sm font-medium">CA:</span>
+            <div className="flex-1 bg-ocean-medium/20 rounded-lg px-3 py-2 flex items-center gap-2 min-w-0">
+              <code className="text-foam-white text-xs font-mono truncate flex-1">
+                {contractAddress}
+              </code>
+              <button
+                onClick={handleCopyCA}
+                className="flex-shrink-0 p-1 hover:bg-aqua-bright/20 rounded transition-colors"
+                title="Copy contract address"
+              >
+                {copied ? (
+                  <Check className="w-4 h-4 text-green-400" />
+                ) : (
+                  <Copy className="w-4 h-4 text-aqua-light hover:text-foam-white" />
+                )}
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Join Pod Section */}
